@@ -4,14 +4,15 @@ import dotenv from "dotenv"
 import authRoutes from './routes/auth.routes.js'
 import connectToMongoDB from "./db/connect.mongodb.js";
 
-const server = express();
 dotenv.config()
-
-
-
+const server = express();
 const PORT = process.env.PORT || 9090;
 
 
+
+server.use(express.json())
+
+server.use("/api/auth", authRoutes)
 
 
 server.get("/", async (req,res)=>{
@@ -19,7 +20,7 @@ server.get("/", async (req,res)=>{
     res.send("OK")
 })
 
-server.use("/api/auth", authRoutes)
+
 
 
 
