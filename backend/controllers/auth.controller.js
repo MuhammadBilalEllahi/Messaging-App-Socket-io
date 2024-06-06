@@ -3,7 +3,33 @@ import bcryptjs from "bcryptjs";
 import generateTokenAndSetCookie from '../utils/generate.token.js';
 
 export const login = async (req,res)=>{
-    res.send("OK")
+    try {
+        const { username, password} = req.body;
+
+        const user = await User.findOne({username});
+        
+        const isPassMatched = bcryptjs.compare(password,user?.password || '')
+
+        if(!user || !isPassMatched) return res.status(400).json({error: "Invalid username or password"})
+
+        generateTokenAndSetCookie(user._id, res)
+
+        res.status(201).json({
+            _id: user._id, 
+            fullName: user.fullName,
+            username: user.username,
+            profilePic: user.profilePic
+            
+        })
+
+       
+    } catch (error) {
+        console.log("Error in- login-controller: ",error.message)
+        res.status(500).json({error: "Internal Server Error"})
+        // throw new Error("Error in- login-controller: ", error)
+    }
+    
+
 }
 
 export const signup = async (req,res)=>{
@@ -60,6 +86,13 @@ export const signup = async (req,res)=>{
 }
 
 
-export const logout = async (req,res)=>{
-    res.send("OK")
+export const logout =  (req,res)=>{
+    try{
+        res.cookie("jwt","", {maxAge:0})
+        res.status(200).json({message: "Logged Out"})
+    } catch (error) {
+        console.log("Error in- logout-controller: ",error.message)
+        res.status(500).json({error: "Internal Server Error"})
+        // throw new Error("Error in- logout-controller: ", error)
+    }
 }
