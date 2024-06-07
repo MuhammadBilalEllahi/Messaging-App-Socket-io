@@ -2,9 +2,9 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
 
-const protectRoute = async (res,req,next)=>{
+const protectRoute = async (req,res,next)=>{ ///req res order is must
     try {
-        const token = req.cookies.jwt;
+        const token =  req.cookies.jwt;
 
         if(!token) return res.status(401).json({error: "Un Authorized - No Token"})
         
@@ -22,7 +22,7 @@ const protectRoute = async (res,req,next)=>{
         
     } catch (error) {
         console.log("Error in- protect Route-middleware: ",error.message)
-        res.status(500).json({error: "Internal Server Error"})
+        //res.status(500).json({error: "Internal Server Error"})
         
     }
 }
