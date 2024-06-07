@@ -12,7 +12,7 @@ const protectRoute = async (req,res,next)=>{ ///req res order is must
 
         if(!decoded) return res.status(401).json({error: "Un Authorized - InValid Token"})
         
-        const user = await User.find(decoded._id).select("-password")
+        const user = await User.findOne(decoded._id).select("-password")
 
         if(!user) return res.status(404).json({error: "User Not Found"})
 
@@ -22,7 +22,7 @@ const protectRoute = async (req,res,next)=>{ ///req res order is must
         
     } catch (error) {
         console.log("Error in- protect Route-middleware: ",error.message)
-        //res.status(500).json({error: "Internal Server Error"})
+        res.status(500).json({error: "Internal Server Error"})
         
     }
 }
