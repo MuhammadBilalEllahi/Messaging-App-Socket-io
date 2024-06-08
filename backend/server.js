@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 
 import authRoutes from './routes/auth.routes.js';
 import messagesRoutes from './routes/message.routes.js';
+import userRoutes from './routes/user.routes.js';
 
 import connectToMongoDB from "./db/connect.mongodb.js";
 
@@ -19,9 +20,8 @@ server.use(express.json())
 server.use(cookieParser())
 
 server.use("/api/auth", authRoutes)
-
-
 server.use("/api/messages", messagesRoutes)
+server.use("/api/users", userRoutes)
 
 
 server.get("/", async (req,res)=>{
