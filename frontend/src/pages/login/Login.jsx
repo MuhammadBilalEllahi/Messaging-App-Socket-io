@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom'
+
 export default function Login() {
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
@@ -50,7 +52,7 @@ export default function Login() {
           </div>
 
           <div className="my-2 text-sm">
-            <a className="link link-hover" href="/">Don&apos;t Have an Acoount?</a>
+            <Link className="link link-hover" to="/signup">Don&apos;t Have an Acoount?</Link>
 
           </div>
 

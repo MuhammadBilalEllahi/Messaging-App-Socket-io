@@ -4,6 +4,7 @@ import MessagesInput from "./MessagesInput";
 import { TiMessages } from 'react-icons/ti'
 
 export default function MessageContainer() {
+    // eslint-disable-next-line no-unused-vars
     const [noChatSelected, setNoChatSelected] = useState(true)
 
     return (
