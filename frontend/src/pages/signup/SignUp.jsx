@@ -13,7 +13,7 @@ export default function SignUp() {
     gender: '',
   })
 
-  // eslint-disable-next-line no-unused-vars
+
   const { loading, signup } = useSignup()
 
   const handleSubmit = async (e) => {
@@ -122,7 +122,9 @@ export default function SignUp() {
 
           </div>
 
-          <button className="btn btn-block">Login</button>
+          <button disabled={loading} className="btn btn-block">
+            {loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
+          </button>
 
         </form>
 
