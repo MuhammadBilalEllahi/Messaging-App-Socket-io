@@ -9,10 +9,13 @@ const useLogin = () => {
         username,
         password
     ) => {
+        const success = handleInputErrors(username, password)
+        if (!success) return;
+        setLoading(true)
         try {
-            setLoading(true)
 
-            console.log(username, password)
+
+
             const res = await fetch("/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -24,7 +27,7 @@ const useLogin = () => {
 
             const data = await res.json()
 
-            console.log(data)
+            // console.log(data)
             if (data.error) {
                 throw new Error(data.error)
             }
@@ -42,3 +45,20 @@ const useLogin = () => {
 }
 
 export default useLogin
+
+
+
+
+function handleInputErrors(
+    username, password
+) {
+
+    if (!username || !password) {
+        toast.error("Please fill all fields")
+        return false
+    }
+
+
+
+    return true
+}
