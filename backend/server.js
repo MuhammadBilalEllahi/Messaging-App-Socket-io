@@ -23,7 +23,8 @@ const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', '
 
 const corsOptions = {
     origin: allowedOrigins,
-    optionsSuccessStatus: 200
+    credentials: true,
+    optionSuccessStatus: 200
 }
 
 app.use(cors(corsOptions))
