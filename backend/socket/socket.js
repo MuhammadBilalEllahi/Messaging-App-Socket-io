@@ -10,7 +10,7 @@ const io = new Server(server, {
     //     methods: ["GET", "POST"]
     // }
     cors: {
-        origin: ["https://messaging-app-socket-io.vercel.app"],
+        origin: ["https://messaging-app-socket-io.vercel.app", 'https://messaging-app-socket-io-frontend.vercel.app'],
         methods: ["GET", "POST"]
     }
 })
