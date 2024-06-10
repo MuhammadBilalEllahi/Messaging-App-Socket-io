@@ -24,16 +24,11 @@ server.use("/api/messages", messagesRoutes)
 server.use("/api/users", userRoutes)
 
 
-server.get("/", async (req,res)=>{
-    console.log("Hi")
-    res.send("OK")
-})
 
 
 
 
-
-server.listen(PORT, ()=>{
+server.listen(PORT, () => {
     connectToMongoDB()
     console.log(`Listening on ${PORT}`)
 })
