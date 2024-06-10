@@ -18,10 +18,23 @@ const PORT = process.env.PORT || 9090;
 
 const __dirname = path.resolve()
 
-app.use(cors({
-    origin: ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'],
-    credentials: true
-}));
+
+const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    optionsSuccessStatus: 200
+}
+
+app.use(corsOptions)
+
+
 app.use(express.json())
 app.use(cookieParser())
 
