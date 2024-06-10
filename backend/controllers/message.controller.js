@@ -52,7 +52,6 @@ export const sendMessage = async (req, res) => {
 
 export const getMessages = async (req, res) => {
     try {
-        console.log("req user in get messages: ", req.user)
         const { id: userToChat } = req.params;
         const senderId = req.user._id;
 
@@ -61,8 +60,6 @@ export const getMessages = async (req, res) => {
         }).populate('messages');
 
         if (!conversation) return res.status(200).json([])
-
-        //console.log(conversation)
 
         const messages = conversation.messages;
         res.status(200).json(messages)
