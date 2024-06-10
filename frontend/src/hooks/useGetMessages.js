@@ -14,7 +14,7 @@ const useGetMessages = () => {
                 setLoading(true)
                 try {
                     console.log(selectedConversation)
-                    const res = await fetch(`/api/messages/${selectedConversation._id}`)
+                    const res = await fetch(`https://messaging-app-socket-io.vercel.app/api/messages/${selectedConversation._id}`)
 
                     const data = await res.json()
                     if (data.error) {
