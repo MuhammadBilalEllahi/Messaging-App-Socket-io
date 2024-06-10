@@ -2,6 +2,7 @@
 
 import useConversation from "../../zustand/useConversation"
 import { useAuthContext } from "../../context/AuthContext"
+import { extractTimeFormat } from "../../utils/extractTimeFormat"
 
 
 const Message = ({ message }) => {
@@ -13,7 +14,8 @@ const Message = ({ message }) => {
     console.log("auth ", authUser._id, "sender id", message.senderId, authUser._id === message.senderId, "receiver id", message.receiverId)
     const chatClassName = fromMe ? 'chat-end' : 'chat-start';
     const profilePic = fromMe ? authUser.profilePic : selectedConversation?.profilePic
-    const bubbleBgColor = fromMe ? 'bg-blue-500' : ""
+    const bubbleBgColor = fromMe ? 'bg-blue-500' : "";
+    const formattedTime = extractTimeFormat(message.createdAt)
 
 
     return (
@@ -28,7 +30,7 @@ const Message = ({ message }) => {
                 <div className={`chat-bubble ${bubbleBgColor}`}>{message.message}</div>
                 <div className="chat-footer opacity-50">
                     Delivered
-                    <time className="mx-2 text-xs opacity-50">12:45</time>
+                    <time className="mx-2 text-xs opacity-50">{formattedTime}</time>
 
                 </div>
             </div>
