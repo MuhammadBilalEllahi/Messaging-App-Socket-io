@@ -22,13 +22,7 @@ const __dirname = path.resolve()
 const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'];
 
 const corsOptions = {
-    origin: (origin, callback) => {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: allowedOrigins,
     optionsSuccessStatus: 200
 }
 
@@ -42,7 +36,7 @@ app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")))
+app.use(express.static(path.join(__dirname, "/frontend/dist/")))
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
@@ -54,3 +48,5 @@ server.listen(PORT, () => {
     connectToMongoDB()
     console.log(`Listening on ${PORT}`)
 })
+
+
