@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "https://messaging-app-socket-io.vercel.app/" //for development only
+        target: "http://localhost:8000" //for development only
       }
     }
   }

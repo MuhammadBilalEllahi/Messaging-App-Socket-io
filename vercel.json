@@ -1,0 +1,10 @@
+{
+    "version":1 ,
+    "name": "chat-with-socket-nodejs-react",
+    "builds": [{
+        "src": "backend/server.js", "use": "@vercel/node"
+    }],
+    "routes": [{
+        "src": "/(.*)", "use": "backend/server.js"
+    }]
+}
