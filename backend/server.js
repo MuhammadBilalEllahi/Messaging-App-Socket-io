@@ -17,6 +17,10 @@ const PORT = process.env.PORT || 9090;
 
 const __dirname = path.resolve()
 
+app.use(cors({
+    origin: ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'],
+    credentials: true
+}));
 app.use(express.json())
 app.use(cookieParser())
 
