@@ -14,7 +14,13 @@ const useGetMessages = () => {
                 setLoading(true)
                 try {
                     console.log(selectedConversation)
-                    const res = await fetch(`https://messaging-app-socket-io.vercel.app/api/messages/${selectedConversation._id}`)
+                    const res = await fetch(`https://messaging-app-socket-io.vercel.app/api/messages/${selectedConversation._id}`, {
+                        method: "GET",
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                        }
+                    })
 
                     const data = await res.json()
                     if (data.error) {

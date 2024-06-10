@@ -13,7 +13,13 @@ const useGetConversations = () => {
             setLoading(true)
 
             try {
-                const res = await fetch("https://messaging-app-socket-io.vercel.app/api/users/")
+                const res = await fetch("https://messaging-app-socket-io.vercel.app/api/users/", {
+                    method: "GET",
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                    }
+                })
                 const data = await res.json()
 
                 if (data.error) {

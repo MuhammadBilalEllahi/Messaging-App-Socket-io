@@ -18,7 +18,11 @@ const useLogin = () => {
 
             const res = await fetch("https://messaging-app-socket-io.vercel.app/api/auth/login", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                },
                 body: JSON.stringify({
                     username,
                     password
