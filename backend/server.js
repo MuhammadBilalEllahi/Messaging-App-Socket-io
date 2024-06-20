@@ -34,9 +34,9 @@ app.use(cookieParser())
 // app.options('*', cors(corsOptions));
 app.options('*', cors());
 
-app.get("/", async (req, res) => {
-    res.send("OK")
-})
+// app.get("/", async (req, res) => {
+//     res.send("OK")
+// })
 
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
