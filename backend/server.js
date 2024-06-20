@@ -24,8 +24,8 @@ const corsOptions = {
     origin: 'https://messaging-app-socket-io-frontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-    optionSuccessStatus: 200
-}
+    optionsSuccessStatus: 200
+};
 
 app.use(cors(corsOptions))
 app.use(express.json())
