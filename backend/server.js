@@ -37,6 +37,8 @@ app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
+app.options('*', cors());
+
 app.use(express.static(path.join(__dirname, "/frontend/dist/")))
 
 app.get("*", (req, res) => {
