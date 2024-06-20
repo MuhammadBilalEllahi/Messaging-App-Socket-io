@@ -41,20 +41,24 @@ app.use((req, res, next) => {
 });
 app.options('*', cors());
 
-app.use("/api/auth", authRoutes)
-app.use("/api/messages", messagesRoutes)
-app.use("/api/users", userRoutes)
 
 app.get("/", async (req, res) => {
     res.send("OK")
 })
 
 
-app.use(express.static(path.join(__dirname, "/frontend/dist/")))
+app.use("/api/auth", authRoutes)
+app.use("/api/messages", messagesRoutes)
+app.use("/api/users", userRoutes)
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
-})
+
+
+
+// app.use(express.static(path.join(__dirname, "/frontend/dist/")))
+
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+// })
 
 
 server.listen(PORT, () => {
