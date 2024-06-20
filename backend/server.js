@@ -23,8 +23,8 @@ const __dirname = path.resolve()
 const corsOptions = {
     origin: 'https://messaging-app-socket-io-frontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 200
+    credentials: true
+    
 };
 
 app.use(cors(corsOptions))
@@ -32,6 +32,12 @@ app.use(express.json())
 app.use(cookieParser())
 
 // app.options('*', cors(corsOptions));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
+
 app.options('*', cors());
 
 app.get("/", async (req, res) => {
