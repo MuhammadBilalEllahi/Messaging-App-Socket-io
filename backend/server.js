@@ -19,10 +19,11 @@ const PORT = process.env.PORT || 9090;
 const __dirname = path.resolve()
 
 
-const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'];
+// const allowedOrigins = [, 'https://messaging-app-socket-io.vercel.app'];
 
 const corsOptions = {
-    origin: allowedOrigins,
+    origin: 'https://messaging-app-socket-io-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionSuccessStatus: 200
 }
@@ -37,6 +38,11 @@ app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
 app.options('*', cors());
 
 app.use(express.static(path.join(__dirname, "/frontend/dist/")))
