@@ -4,19 +4,19 @@ import express from "express"
 import cors from "cors"
 
 const app = express()
-app.use(cors({
-    origin: 'https://messaging-app-socket-io-frontend.vercel.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
+// app.use(cors({
+//     origin: 'https://messaging-app-socket-io-frontend.vercel.app',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true
     
-}))
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
-    res.header("Access-Control-Allow-Credentials", "true");
-    next();
-});
+// }))
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     next();
+// });
 
-app.options('*', cors());
+// app.options('*', cors());
 const server = http.createServer(app)
 const io = new Server(server, {
     // cors: {
