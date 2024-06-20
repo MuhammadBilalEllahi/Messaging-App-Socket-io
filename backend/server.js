@@ -20,14 +20,14 @@ const __dirname = path.resolve()
 
 // const allowedOrigins = [, 'https://messaging-app-socket-io.vercel.app'];
 
-const corsOptions = {
+
+
+app.use(cors({
     origin: 'https://messaging-app-socket-io-frontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
     
-};
-
-app.use(cors(corsOptions))
+}))
 app.use(express.json())
 app.use(cookieParser())
 
