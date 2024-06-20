@@ -39,7 +39,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.options('*', cors(corsOptions));
+// app.options('*', cors(corsOptions));
+app.options('*', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.sendStatus(200);
+});
 
 app.get("/", async (req, res) => {
     res.send("OK")
