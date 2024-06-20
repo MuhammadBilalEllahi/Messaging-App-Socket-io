@@ -3,6 +3,20 @@ import http from 'http'
 import express from "express"
 
 const app = express()
+
+
+app.options('*', cors(corsOptions));
+
+const corsOptions = {
+    origin: 'https://messaging-app-socket-io-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions))
+
+
 const server = http.createServer(app)
 const io = new Server(server, {
     // cors: {
