@@ -34,16 +34,18 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/api/auth", authRoutes)
-app.use("/api/messages", messagesRoutes)
-app.use("/api/users", userRoutes)
-
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
     res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
 app.options('*', cors());
+
+app.use("/api/auth", authRoutes)
+app.use("/api/messages", messagesRoutes)
+app.use("/api/users", userRoutes)
+
+
 
 app.use(express.static(path.join(__dirname, "/frontend/dist/")))
 
