@@ -45,6 +45,9 @@ app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
+app.get("/", async (req, res) => {
+    res.send("OK")
+})
 
 
 app.use(express.static(path.join(__dirname, "/frontend/dist/")))
