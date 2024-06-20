@@ -34,19 +34,19 @@ app.use(cookieParser())
 // app.options('*', cors(corsOptions));
 app.options('*', cors());
 
-// app.get("/", async (req, res) => {
-//     res.send("OK")
-// })
+app.get("/", async (req, res) => {
+    res.send("OK")
+})
 
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
-app.use(express.static(path.join(__dirname, "/frontend/dist/")))
+// app.use(express.static(path.join(__dirname, "/frontend/dist/")))
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+// })
 
 server.listen(PORT, () => {
 
