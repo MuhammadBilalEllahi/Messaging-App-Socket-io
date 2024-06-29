@@ -38,7 +38,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.options('*', cors());
+// app.options('*', cors());
 
 
 // app.options('*', (req, res) => {
@@ -48,6 +48,14 @@ app.options('*', cors());
 //     res.header('Access-Control-Allow-Credentials', 'true');
 //     res.sendStatus(200);
 // });
+
+app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Origin', 'https://messaging-app-socket-io-frontend.vercel.app');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.sendStatus(200);
+});
 
 
 app.get("/", async (req, res) => {
