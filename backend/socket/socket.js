@@ -36,8 +36,8 @@ const io = new Server(server, {
     //     methods: ["GET", "POST"]
     // }
     cors: {
-        origin: 'https://messaging-app-socket-io-frontend.vercel.app',
-        methods: ["GET", "POST"]
+        origin: ['https://messaging-app-socket-io-frontend.vercel.app'],
+        methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"]
     }
 })
 export const getReceiverSocketId = (receiverId) => {
