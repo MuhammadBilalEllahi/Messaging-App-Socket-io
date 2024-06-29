@@ -19,15 +19,15 @@ const PORT = process.env.PORT || 9090;
 const __dirname = path.resolve()
 
 
-const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'];
+// const allowedOrigins = ['https://messaging-app-socket-io-frontend.vercel.app', 'https://messaging-app-socket-io.vercel.app'];
 
-const corsOptions = {
-    origin: allowedOrigins,
-    credentials: true,
-    optionSuccessStatus: 200
-}
+// const corsOptions = {
+//     origin: allowedOrigins,
+//     credentials: true,
+//     optionSuccessStatus: 200
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
 
 app.use(express.json())
@@ -37,11 +37,11 @@ app.use("/api/auth", authRoutes)
 app.use("/api/messages", messagesRoutes)
 app.use("/api/users", userRoutes)
 
-app.use(express.static(path.join(__dirname, "/frontend/dist/")))
+// app.use(express.static(path.join(__dirname, "/frontend/dist/")))
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+// })
 
 
 server.listen(PORT, () => {

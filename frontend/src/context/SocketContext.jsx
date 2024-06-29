@@ -19,7 +19,7 @@ export const SocketContextProvider = ({ children }) => {
     useEffect(() => {
         console.log("here2")
         if (authUser) {
-            const socket = io("https://messaging-app-socket-io.vercel.app", {
+            const socket = io("http://localhost:8000", {
                 query: {
                     userId: authUser._id
                 }

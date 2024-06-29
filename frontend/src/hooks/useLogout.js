@@ -9,14 +9,10 @@ const useLogout = () => {
     const logout = async () => {
         setLoading(true)
         try {
-            const res = await fetch("https://messaging-app-socket-io.vercel.app/api/auth/logout",
+            const res = await fetch("/api/auth/logout",
                 {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-                    }
+                    headers: { "Content-Type": "application/json" }
                 }
 
             )
