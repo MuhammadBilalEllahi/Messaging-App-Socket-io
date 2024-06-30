@@ -20,25 +20,25 @@ const __dirname = path.resolve()
 
 // const allowedOrigins = [, 'https://messaging-app-socket-io.vercel.app'];
 
+app.use(cors())
 
+// app.use(cors({
+//     origin: 'https://messaging-f.bilalellahi.com',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true
 
-app.use(cors({
-    origin: 'https://messaging-f.bilalellahi.com',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
-
-}))
+// }))
 app.use(express.json())
 app.use(cookieParser())
 
 // app.options('*', cors(corsOptions));
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://messaging-f.bilalellahi.com");
-    res.header("Access-Control-Allow-Credentials", "true");
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "https://messaging-f.bilalellahi.com");
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     next();
+// });
 
-app.options('*', cors());
+// app.options('*', cors());
 
 
 // app.options('*', (req, res) => {
