@@ -20,6 +20,14 @@ const __dirname = path.resolve()
 
 // const allowedOrigins = [, 'https://messaging-app-socket-io.vercel.app'];
 
+const corsOptions = {
+    origin: 'https://messaging-f.bilalellahi.com',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // app.use(cors({
 //     origin: 'https://messaging-f.bilalellahi.com',

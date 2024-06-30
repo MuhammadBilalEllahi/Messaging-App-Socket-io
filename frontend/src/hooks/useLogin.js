@@ -16,7 +16,7 @@ const useLogin = () => {
 
 
 
-            const res = await fetch("https://messaging-app-socket-io-avl4.vercel.app/api/auth/login", {
+            const res = await fetch("https://messaging-b.bilalellahi.com/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
