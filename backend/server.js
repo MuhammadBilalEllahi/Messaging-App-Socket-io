@@ -23,7 +23,7 @@ const __dirname = path.resolve()
 
 
 app.use(cors({
-    origin: 'https://messaging-app-socket-io-frontend.vercel.app',
+    origin: 'https://messaging-f.bilalellahi.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
 
@@ -33,7 +33,7 @@ app.use(cookieParser())
 
 // app.options('*', cors(corsOptions));
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://messaging-app-socket-io-frontend.vercel.app");
+    res.header("Access-Control-Allow-Origin", "https://messaging-f.bilalellahi.com");
     res.header("Access-Control-Allow-Credentials", "true");
     next();
 });

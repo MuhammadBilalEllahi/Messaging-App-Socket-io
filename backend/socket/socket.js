@@ -8,7 +8,7 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://messaging-app-socket-io-frontend.vercel.app",
+        origin: "https://messaging-f.bilalellahi.com",
         methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
     },
 });
