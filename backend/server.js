@@ -27,7 +27,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+
 
 // app.use(cors({
 //     origin: 'https://messaging-f.bilalellahi.com',
@@ -39,13 +39,13 @@ app.use(express.json())
 app.use(cookieParser())
 
 // app.options('*', cors(corsOptions));
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "https://messaging-f.bilalellahi.com");
-//     res.header("Access-Control-Allow-Credentials", "true");
-//     next();
-// });
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://messaging-f.bilalellahi.com");
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
 
-// app.options('*', cors());
+app.options('*', cors());
 
 
 // app.options('*', (req, res) => {
@@ -63,7 +63,7 @@ app.use(cookieParser())
 //     res.header('Access-Control-Allow-Credentials', 'true');
 //     res.sendStatus(200);
 // });
-
+// app.options('*', cors(corsOptions));
 
 app.get("/", async (req, res) => {
     res.send("OK")

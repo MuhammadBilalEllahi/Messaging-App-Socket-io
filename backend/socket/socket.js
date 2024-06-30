@@ -4,14 +4,14 @@ import express from "express"
 import cors from "cors"
 
 const app = express()
-const corsOptions = {
-    origin: 'https://messaging-f.bilalellahi.com',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
-};
+// const corsOptions = {
+//     origin: 'https://messaging-f.bilalellahi.com',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true
+// };
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
 
 const server = http.createServer(app)
 const io = new Server(server, {

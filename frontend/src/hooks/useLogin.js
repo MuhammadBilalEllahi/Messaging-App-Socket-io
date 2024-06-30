@@ -21,11 +21,12 @@ const useLogin = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: 'include',
                 body: JSON.stringify({
                     username,
                     password
                 }),
-                credentials: 'include'
+
             })
 
             const data = await res.json()
