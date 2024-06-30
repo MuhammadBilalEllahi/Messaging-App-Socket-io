@@ -25,7 +25,7 @@ const useLogin = () => {
                     username,
                     password
                 }),
-                // credentials: 'include'
+                credentials: 'include'
             })
 
             const data = await res.json()
