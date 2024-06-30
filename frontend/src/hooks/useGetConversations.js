@@ -13,7 +13,7 @@ const useGetConversations = () => {
             setLoading(true)
 
             try {
-                const res = await fetch("/api/users/")
+                const res = await fetch("https://messaging-b.bilalellahi.com/api/users/")
                 const data = await res.json()
 
                 if (data.error) {
