@@ -18,11 +18,12 @@ const PORT = process.env.PORT || 9090;
 
 const __dirname = path.resolve()
 
-// const corsOptions = {
-//     origin: 'https://messaging-f.bilalellahi.com',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true,
-// };
+const corsOptions = {
+    origin: ['https://messaging-f.bilalellahi.com'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+};
+app.use(cors(corsOptions))
 
 
 app.use(express.json())
