@@ -17,7 +17,6 @@ const useLogin = () => {
 
 
             const res = await fetch("https://messaging-b.bilalellahi.com/api/auth/login", {
-                mode: 'no-cors',
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
